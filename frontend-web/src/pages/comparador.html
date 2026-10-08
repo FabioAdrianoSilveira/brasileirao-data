@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Comparador de Times · Brasileirão Data</title>
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/comparador.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-in">
+        <a class="logo" href="estatisticas.html"
+          ><span class="badge">B</span>Brasileirão <b>Data</b></a
+        >
+        <nav>
+          <a href="estatisticas.html" class="">Estatísticas Individuais</a
+          ><a href="comparador.html" class="active">Comparador de Times</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <h1 class="c">Comparador de Times</h1>
+      <p class="sub c">Escolha dois times e compare os números lado a lado.</p>
+      <div class="lados">
+        <section class="card lado" id="ladoA">
+          <label
+            >TIME A<select id="selA">
+              <option value="">Selecione um time</option>
+            </select></label
+          >
+          <div class="corpo"></div>
+        </section>
+        <section class="card lado" id="ladoB">
+          <label
+            >TIME B<select id="selB">
+              <option value="">Selecione um time</option>
+            </select></label
+          >
+          <div class="corpo"></div>
+        </section>
+      </div>
+      <section id="chances" class="chances" hidden>
+        <h3>CHANCES DA PARTIDA</h3>
+        <div class="nums">
+          <div><strong id="pA"></strong><span id="nA"></span></div>
+          <div class="emp"><strong id="pE"></strong><span>Empate</span></div>
+          <div><strong id="pB"></strong><span id="nB"></span></div>
+        </div>
+        <div class="barra"><i id="bA"></i><i id="bE"></i><i id="bB"></i></div>
+      </section>
+    </main>
+    <script type="module" src="../scripts/comparador.js"></script>
+  </body>
+</html>

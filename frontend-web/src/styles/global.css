@@ -1,0 +1,10 @@
+:root{--verde:#01371A;--ouro:#E0C25A;--bg:#F8FAF9;--txt:#4A5A50;--borda:#DDE5E0}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--txt)}
+.nav{background:var(--verde);color:#fff}.nav-in{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:1.2rem}.logo b{color:var(--ouro)}
+.badge{width:34px;height:34px;border-radius:50%;background:var(--ouro);color:var(--verde);display:grid;place-items:center}
+.nav nav a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;padding:8px 14px;border-radius:8px;margin-left:6px}.nav nav a.active{background:rgba(255,255,255,.18)}
+.container{max-width:1000px;margin:auto;padding:32px 20px}h1{color:var(--verde);margin:0 0 4px}.c{text-align:center}.sub{margin:0 0 24px}
+.card{background:#fff;border:1px solid var(--borda);border-radius:18px;padding:20px;box-shadow:0 2px 8px #0001}
+label{display:block;font-size:.75rem;font-weight:600;letter-spacing:.04em}
+select{width:100%;margin-top:8px;padding:12px;border:1px solid var(--borda);border-radius:10px;font:inherit;background:#fff;color:var(--verde)}select:disabled{color:#999}
