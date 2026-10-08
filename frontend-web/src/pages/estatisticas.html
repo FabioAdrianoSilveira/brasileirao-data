@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Estatísticas Individuais · Brasileirão Data</title>
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/estatisticas.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-in">
+        <a class="logo" href="estatisticas.html"
+          ><span class="badge">B</span>Brasileirão <b>Data</b></a
+        >
+        <nav>
+          <a href="estatisticas.html" class="active">Estatísticas Individuais</a
+          ><a href="comparador.html" class="">Comparador de Times</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <h1>Estatísticas Individuais</h1>
+      <p class="sub">
+        Escolha um time, a posição e um jogador para ver os números da
+        temporada.
+      </p>
+      <section class="card filtros">
+        <label
+          >TIME<select id="selTime">
+            <option value="">Selecione um time</option>
+          </select></label
+        >
+        <label
+          >POSIÇÃO<select id="selPosicao">
+            <option value="">Selecione a posição</option>
+            <option value="goleiro">Goleiro</option>
+            <option value="linha">Linha</option>
+          </select></label
+        >
+        <label
+          >JOGADOR<select id="selJogador" disabled>
+            <option value="">Selecione um jogador</option>
+          </select></label
+        >
+      </section>
+      <section id="resultado" class="vazio">
+        Selecione um time, uma posição e um jogador para exibir as estatísticas.
+      </section>
+    </main>
+    <script type="module" src="../scripts/estatisticas.js"></script>
+  </body>
+</html>
