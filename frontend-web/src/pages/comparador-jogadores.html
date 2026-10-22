@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Comparador de Jogadores · Brasileirão Data</title>
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/comparador-jogadores.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-in">
+        <a class="logo" href="estatisticas.html"
+          ><span class="badge">B</span>Brasileirão <b>Data</b></a
+        >
+        <nav>
+          <a href="estatisticas.html" class="">Estatísticas Individuais</a
+          ><a href="comparador.html" class="">Comparador de Times</a
+          ><a href="comparador-jogadores.html" class="active"
+            >Comparador de Jogadores</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <h1 class="c">Comparador de Jogadores</h1>
+      <p class="sub c">
+        Escolha a posição e compare dois jogadores dessa mesma posição lado a
+        lado.
+      </p>
+      <section class="card filtros-comuns">
+        <label
+          >POSIÇÃO<select id="selPos">
+            <option value="">Selecione a posição</option>
+            <option value="goleiro">Goleiro</option>
+            <option value="linha">Linha</option>
+          </select></label
+        >
+        <label id="lblSetor" hidden
+          >SETOR<select id="selSetor">
+            <option value="">Selecione o setor</option>
+            <option value="defesa">Defesa</option>
+            <option value="meio">Meio-Campo</option>
+            <option value="ataque">Ataque</option>
+          </select></label
+        >
+      </section>
+      <div class="lados">
+        <section class="card lado" id="ladoA">
+          <div class="filtros-j">
+            <label
+              >TIME A<select class="selTime">
+                <option value="">Selecione um time</option>
+              </select></label
+            >
+            <label
+              >JOGADOR A<select class="selJog" disabled>
+                <option value="">Selecione um jogador</option>
+              </select></label
+            >
+          </div>
+          <div class="corpo"></div>
+        </section>
+        <section class="card lado" id="ladoB">
+          <div class="filtros-j">
+            <label
+              >TIME B<select class="selTime">
+                <option value="">Selecione um time</option>
+              </select></label
+            >
+            <label
+              >JOGADOR B<select class="selJog" disabled>
+                <option value="">Selecione um jogador</option>
+              </select></label
+            >
+          </div>
+          <div class="corpo"></div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="../scripts/comparadorJogadores.js"></script>
+  </body>
+</html>
