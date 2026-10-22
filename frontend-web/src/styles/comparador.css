@@ -1,7 +1,11 @@
 .lados {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
+}
+
+.lado {
+  min-width: 0;
 }
 
 .lado h2 {
@@ -115,8 +119,31 @@ td {
   background: #9aa89f;
 }
 
+td {
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 800px) {
   .lados {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chances {
+    padding: 18px 14px;
+  }
+
+  .nums strong {
+    font-size: 1.35rem;
+  }
+
+  .nums span {
+    font-size: 0.68rem;
+  }
+  
+  .linhas div {
+    font-size: 0.8rem;
   }
 }
