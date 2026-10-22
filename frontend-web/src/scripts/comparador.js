@@ -13,16 +13,33 @@ async function lado(sel, box, key) {
   if (!nome) { dados[key] = null; box.innerHTML = ''; return; }
   const [t, elenco] = await Promise.all([getTime(nome), getElenco(nome)]);
   dados[key] = t;
-  const L = [['Total de Partidas Jogadas', t.total_partidas], ['Vitórias', t.vitorias], ['Empates', t.empates], ['Derrotas', t.derrotas], ['Total de Gols Marcados', t.gols_marcados], ['Total de Gols Sofridos', t.gols_sofridos]];
+  const L = [['Total de Partidas Jogadas', t.total_partidas, 'total_partidas'], ['Vitórias', t.vitorias, 'vitorias'], ['Empates', t.empates, 'empates'],
+    ['Derrotas', t.derrotas, 'derrotas'], ['Total de Gols Marcados', t.gols_marcados, 'gols_marcados'], ['Total de Gols Sofridos', t.gols_sofridos, 'gols_sofridos']];
   const linhas = SETORES.map(([rot, s]) => {
     const r = melhorDoSetor(elenco, s, t.total_partidas);
     return `<tr><td>${rot}</td><td>${r ? r.nome : '—'}</td></tr>`;
   }).join('');
-  box.innerHTML = `<h2>${t.nome}</h2><div class="linhas">${L.map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join('')}</div>
+  box.innerHTML = `<h2>${t.nome}</h2><div class="linhas">${L.map(([r, v, k]) => `<div><span>${r}</span><span class="val" data-k="${k}">${v}</span></div>`).join('')}</div>
     <table><tr><th>Setor</th><th>Destaque</th></tr>${linhas}</table>`;
 }
 
+// Critério de "melhor" por estatística: 'max' = maior valor vence, 'min' = menor valor vence.
+const CRITERIOS = { vitorias: 'max', derrotas: 'min', gols_marcados: 'max', gols_sofridos: 'min' };
+
+/** Destaca em negrito o melhor valor de cada critério. Em caso de empate, ninguém é destacado. */
+function destacar() {
+  document.querySelectorAll('.val.melhor').forEach(e => e.classList.remove('melhor'));
+  if (!(dados.A && dados.B)) return;
+  for (const [k, tipo] of Object.entries(CRITERIOS)) {
+    const a = dados.A[k], b = dados.B[k];
+    if (a === b) continue;
+    const venceA = tipo === 'max' ? a > b : a < b;
+    document.querySelector(`#${venceA ? 'ladoA' : 'ladoB'} .val[data-k="${k}"]`)?.classList.add('melhor');
+  }
+}
+
 function chances() {
+  destacar();
   const { A, B } = dados, box = $('chances');
   box.hidden = !(A && B);
   if (!(A && B)) return;
